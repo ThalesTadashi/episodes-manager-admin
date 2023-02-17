@@ -28,6 +28,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatGridListModule} from "@angular/material/grid-list";
 
 import {MatSelectModule} from "@angular/material/select";
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import {MatSelectModule} from "@angular/material/select";
     UsersComponent,
     MoviesComponent,
     DashboardComponent,
+    HeaderComponent,
+    SidebarComponent,
     
   ],
   imports: [
