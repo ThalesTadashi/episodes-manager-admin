@@ -7,21 +7,21 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-  {
-    path: '', component: HomeComponent
-  },
-  {
-    path: 'main', component: MainComponent
-  },
-  {
-    path: 'users', component: UsersComponent
-  },
-  {
-    path: 'movies', component: MoviesComponent
-  },
+
   {
     path: 'login', component: LoginComponent
   },
+  {
+    path: '', component: MainComponent,
+    children: [
+  
+        {path: 'users', component: UsersComponent},
+
+        {
+            path: 'movies', component: MoviesComponent},
+ 
+    ],
+}
 ];
 
 @NgModule({
