@@ -67,6 +67,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatSelectModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
