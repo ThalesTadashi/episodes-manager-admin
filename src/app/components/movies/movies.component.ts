@@ -20,7 +20,8 @@ export class MoviesComponent implements OnInit {
     this.getMovies();
   }
   removeMovie(movie: Movie) {
-    this.movies = this.ListService.remove(this.movies, movie)
+    this.movies = this.movies.filter((a) => movie.name !== a.name);
+    this.ListService.remove(movie.id).subscribe();
   }
 
   getMovies() {

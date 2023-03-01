@@ -10,8 +10,8 @@ export class ListService {
 
   constructor(private http: HttpClient) { }
 
-  remove(movies: Movie[], movie: Movie){
-    return movies.filter((a) => movie.name !== a.name);
+  remove(id: number){
+    return this.http.delete<Movie>(`${this.apiUrl}/${id}`);
   }
 
   getAll(): Observable<Movie[]>{
