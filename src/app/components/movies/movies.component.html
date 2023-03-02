@@ -12,6 +12,7 @@
     <ul>
         <li *ngFor="let movie of movies">{{movie.name}} | {{movie.type}}
             <button (click)="removeMovie(movie)">Excluir</button>
+            <button routerLink="/movie-detail/{{movie.id}}">Detalhe</button>
         </li>
         
     </ul>

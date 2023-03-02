@@ -33,6 +33,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
+    UserDetailComponent,
+    MovieDetailComponent,
     
   ],
   imports: [

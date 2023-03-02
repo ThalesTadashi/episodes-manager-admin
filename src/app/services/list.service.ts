@@ -17,4 +17,8 @@ export class ListService {
   getAll(): Observable<Movie[]>{
       return this.http.get<Movie[]>(this.apiUrl);
   }
+
+  getItem(id: number): Observable<Movie>{
+      return this.http.get<Movie>(`${this.apiUrl}/${id}`);
+  }
 }
