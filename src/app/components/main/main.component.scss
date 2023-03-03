@@ -1,19 +1,6 @@
-.app-body {
-    width: 100%;
-    display: block;
-    background-color: white;
-  
-      display: flex;
-    
-  }
-  
-  .main {
-    flex-grow: 1;
-    padding: 60px 15px 15px 15px;
-    transition: transform 0.3s ease;
-  
-   
-      padding: 70px 0 15px 0;
-    
+
+  .container {
+    min-height: 65vh;
+    margin-top: 1em;
   }
   
