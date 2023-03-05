@@ -9,7 +9,6 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthenticateComponent } from './components/authenticate/authenticate.component';
 import { UsersComponent } from './components/users/users.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatCardModule} from "@angular/material/card";
@@ -46,7 +45,6 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
     AuthenticateComponent,
     UsersComponent,
     MoviesComponent,
-    DashboardComponent,
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
