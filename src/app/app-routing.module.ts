@@ -18,6 +18,8 @@ const routes: Routes = [
     path: '', component: MainComponent,
     children: [
   
+        {path: 'home', component: HomeComponent},
+
         {path: 'logout', component: LogoutComponent},
 
         {path: 'users', component: UsersComponent},
