@@ -1,67 +1,120 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    min-height: 100vh;
-    background: rgb(39, 37, 41);
-    background: linear-gradient(90deg, rgb(35, 32, 37) 15%, rgb(17, 16, 19) 52%, rgb(5, 4, 5) 100%);
-  }
-  
-  input {
-    background-color: rgb(55, 53, 59);
-    padding: 10px;
-    margin: 15px;
-    border: 1px;
-    border-bottom: 0.5px solid #eee;
-    box-shadow: 0 0 15px 4px rgba(226, 221, 221, 0.267);
-    border-radius: 10px;
-    color: #eee;
-  }
-  
-  button {
-    appearance: none;
-    -webkit-appearance: none;
-    padding: 10px;
-    border: none;
-    background-color: #3F51B5;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 5px;
-    width: 50%;
-  }
-  
-  .box {
-    position: fixed;
-    height: 300px;
-    border-radius: 31px;
-    background: #1e222a;
-    box-shadow:  31px 31px 57px #14171d,
-                 -31px -31px 57px #282d37;
-    
-    display: flex;
-    flex-direction: column;
-    
-    margin: 100px auto;
-    max-width: 500px;
-    width: 100%;
-  
-  }
-  
-  .box-input {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .box:hover {
-    border-radius: 31px;
-    background: linear-gradient(145deg, #1b1f27, #171a20);
-    box-shadow:  31px 31px 57px #111418,
-                 -31px -31px 57px #212630;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+
+  background: rgb(38,49,154);
+  background: linear-gradient(0deg, rgba(38,49,154,1) 0%, rgba(0,0,0,1) 100%);background-position: center;
+  background-size: cover;
+}
+
+.form-box {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
+.inputbox {
+  position: relative;
+  margin: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #fff;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1em;
+  pointer-events: none;
+  transition: .5s;
+}
+
+input:focus~label,
+input:valid~label {
+  top: -5px;
+}
+
+.inputbox input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 5px;
+  color: #fff;
+}
+
+.forget {
+  margin: -15px 0 15px;
+  font-size: .9em;
+  color: #fff;
+  display: block;
+  justify-content: center;
+}
+
+.forget label input {
+  margin-right: 3px;
+}
+
+.forget label a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.forget label a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.register {
+  font-size: .9em;
+  color: #fff;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+.register p a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
