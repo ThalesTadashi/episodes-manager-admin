@@ -4,19 +4,19 @@
       <form action="">
         <h2>login</h2>
         <div class="inputbox">
-          <input type="email" required>
+          <input type="email" [(ngModel)]="email" name="email">
           <label for=""> Email</label>
         </div>
         <div class="inputbox">
-          <input type="password" required>
+          <input type="password" [(ngModel)]="password" name="password">
           <label for="">Senha</label>
         </div>
         <div class="forget">
           <label for=""> <input type="checkbox">Lembrar senha?  </label>
           <a href="#"> Esqueci minha senha!</a>
         </div>
-        <button>Login</button>
-        <div class="register"> 
+        <button (click)="login()">Login</button>
+        <div class="register" > 
           <p>Não tem uma conta? <a href="#">Registrar</a></p>
         </div>
       </form>
