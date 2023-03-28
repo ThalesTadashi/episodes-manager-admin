@@ -7,3 +7,9 @@ generates:
       - "typescript"
       - "typescript-operations"
       - "typescript-angular"
+          config:
+      skipTypename: true
+      declarationKind: "class"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
