@@ -21,6 +21,7 @@ export class UsersComponent {
   constructor(
     public dialog: MatDialog,
     public router: Router
+    // public createUser: CreateUserGQL
     ) {
   }
   getErrorMessage(s: string) {

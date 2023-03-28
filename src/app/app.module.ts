@@ -34,6 +34,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { Apollo, ApolloModule } from 'apollo-angular';
+import { environment } from 'src/environments/environment';
+import { HttpLink } from 'apollo-angular/http';
+import { InMemoryCache } from '@apollo/client/core';
+import { GraphQLModule } from './graphql/graphql.module';
 
 @NgModule({
   declarations: [
@@ -70,6 +75,9 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
     MatSelectModule,
     HttpClientModule,
     FormsModule,
+    ApolloModule,
+    HttpClientModule,
+    GraphQLModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
