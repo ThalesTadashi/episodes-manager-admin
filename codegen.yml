@@ -3,13 +3,8 @@ schema: "http://localhost:3000/graphql"
 documents: "src/**/*.graphql"
 generates:
   src/generated/graphql.ts:
-    plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-angular"
-          config:
-      skipTypename: true
-      declarationKind: "class"
-  ./graphql.schema.json:
-    plugins:
-      - "introspection"
+   plugins:
+      - typescript
+      - typescript-operations
+      - typescript-angular
+
