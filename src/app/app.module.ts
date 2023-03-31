@@ -38,7 +38,8 @@ import { Apollo, ApolloModule } from 'apollo-angular';
 import { environment } from 'src/environments/environment';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
-import { GraphQLModule } from 'src/graphql/graphql.module';
+import { GraphQLModule } from './graphql.module';
+
 
 
 @NgModule({
