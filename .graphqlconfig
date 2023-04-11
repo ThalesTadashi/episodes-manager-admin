@@ -1,5 +1,5 @@
 {
-  "name": "graphql",
+  "name": "Untitled GraphQL Schema",
   "schemaPath": "./graphql/schema.graphql",
   "extensions": {
     "endpoints": {

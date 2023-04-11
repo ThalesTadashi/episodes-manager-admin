@@ -1,17 +1,28 @@
 import {NgModule} from '@angular/core';
-import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
-import {ApolloClientOptions, DefaultOptions, InMemoryCache} from '@apollo/client/core';
+import {APOLLO_OPTIONS} from 'apollo-angular';
+import {ApolloClientOptions, InMemoryCache, DefaultOptions} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
+import { onError } from '@apollo/client/link/error';
+import {environment} from '../environments/environment';
 import Swal from "sweetalert2";
-import {onError} from "@apollo/client/link/error";
+
 
 const uri = "http://localhost:3000/graphql"
 
-
-const error = onError(({graphQLErrors, networkError}) => {
+const error = onError(({graphQLErrors, networkError}) => { // need help on linking this with graphql module
+  console.log('networkError');
+  console.log(networkError);
   if (graphQLErrors) {
-    console.log('erro no graphql module verificar aqui.');
-    console.log(graphQLErrors);
+    if (graphQLErrors[0]?.extensions?.response) {
+      window.location.href = '/logout';
+    } else if (graphQLErrors[0].message) {
+      Swal.fire({
+        title: 'Atenção',
+        html: graphQLErrors[0].message,
+        icon: 'warning',
+        confirmButtonColor: '#032E58',
+      });
+    }
     graphQLErrors.map(({message, locations, path}) => {
         Swal.fire({
           title: 'Atenção',
@@ -26,55 +37,36 @@ const error = onError(({graphQLErrors, networkError}) => {
   if (networkError) {
     const e: any = networkError;
     if (e.status === 401) {
-      window.location.href = '/';
-    }
-    if (e.status === 400) {
-      let str = '';
       // @ts-ignore
-      e.error.errors.map((x) => {
-        if (x.message.length > 0) {
-          str += x.message;
-        }
-      });
-      Swal.fire({
-        title: 'Atenção',
-        html: str,
-        icon: 'warning',
-        confirmButtonColor: '#032E58',
-      });
+      this.route.navigate(['/']);
     }
+ 
   }
 });
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
-  const options: DefaultOptions = {
+  const defaultOptions: DefaultOptions = {
     watchQuery: {
       fetchPolicy: 'no-cache',
-      errorPolicy: 'ignore',
+      errorPolicy: 'none',
     },
     query: {
       fetchPolicy: 'no-cache',
-      errorPolicy: 'all',
+      errorPolicy: 'none',
     },
     mutate: {
       fetchPolicy: 'no-cache',
-      errorPolicy: 'all',
+      errorPolicy: 'none',
     }
   }
-
   return {
-    link: error.concat(httpLink.create({uri})),
+    link: error.concat(httpLink.create({ uri })), // httpLink.create({uri}),
     cache: new InMemoryCache(),
-    defaultOptions: options,
+    defaultOptions: defaultOptions,
   };
-  /*return {
-    link: httpLink.create({uri}),
-    cache: new InMemoryCache(),
-  };*/
 }
 
 @NgModule({
-  exports: [ApolloModule],
   providers: [
     {
       provide: APOLLO_OPTIONS,
