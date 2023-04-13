@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { CreateUserInput } from 'src/generated/graphql';
+import { CreateUserGQL } from 'src/generated/graphql';
 
 @Component({
   selector: 'app-users',
@@ -17,7 +19,8 @@ export class UsersComponent {
   });
 
   constructor(
-    public router: Router
+    public router: Router,
+    public createUserGQL: CreateUserGQL
     // public createUser: CreateUserGQL
     ) {
   }
@@ -35,6 +38,20 @@ export class UsersComponent {
     console.log('user cadastrado!');
   }
 
+  createUser(){
+
+    const data: CreateUserInput = {
+      email: 'teste@teste.com',
+      phone: '123123123',
+      name: 'XXX',
+      profile: 'admin',
+    }
+
+    
+    this.createUserGQL.mutate({data: data}).subscribe((result) => {
+    
+  });
+  }
 
 
 }
