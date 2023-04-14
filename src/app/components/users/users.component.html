@@ -2,13 +2,24 @@
   <div fxLayout="column" fxLayout.gt-md="row wrap" fxLayoutGap="20px">
     <div fxFlex="100" fxFlex.gt-md="48">
       <mat-form-field appearance="fill">
-        <mat-label for="name">Nome</mat-label>
+        <mat-label for="name">Nome completo</mat-label>
         <input id="name" formControlName="name" matInput />
         <mat-error *ngIf="form.controls.name.hasError('required')">{{
           getErrorMessage("required")
         }}</mat-error>
       </mat-form-field>
     </div>
+
+    <div fxFlex="100" fxFlex.gt-md="48">
+      <mat-form-field appearance="fill">
+        <mat-label for="nickName">Como gostaria de ser chamado(a)?</mat-label>
+        <input id="nickName" formControlName="nickName" matInput />
+        <mat-error *ngIf="form.controls.nickName.hasError('required')">{{
+          getErrorMessage("required")
+        }}</mat-error>
+      </mat-form-field>
+    </div>
+
     <div fxFlex="100" fxFlex.gt-md="48">
       <mat-form-field appearance="fill">
         <mat-label for="email">E-mail</mat-label>
@@ -57,9 +68,6 @@
         [disabled]="!form.valid"
       >
         Salvar
-      </button>
-      <button (click)="createUser()">
-        teste
       </button>
     </div>
   </div>
